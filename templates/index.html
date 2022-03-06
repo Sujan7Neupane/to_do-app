@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %} Index {% endblock title %}
+
+{% block content %}
+    {% for item in to_dos%}
+      <h3>{{item.title}}</h3>
+      <p>{{item.description}}</p>
+      <a href="{% url 'edit' id=item.id %}"> edit </a>
+      <a href="{% url 'delete' id=item.id %}"> delete </a>
+    {% endfor%}
+  <div>
+    <a class="btn btn-primary" href="{% url 'add' %}">Add notes</a>
+  </div>
+{% endblock content%}
